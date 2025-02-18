@@ -1,0 +1,20 @@
+#p_1{
+    color:blue;
+}
+#p_2{
+    color:green;
+}
+#p_3{
+    color:purple;
+}
+.paragrafo_azul{
+    color:blue;
+}
+div p{
+    font-size: xx-large;
+    color:darkslateblue;
+}
+#p_4:hover{
+    font-size: xx-large;
+    color:brown;
+}
