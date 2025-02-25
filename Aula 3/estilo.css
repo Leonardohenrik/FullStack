@@ -1,0 +1,57 @@
+div{
+    padding: 10px;
+    margin:10px;
+    border-radius: 10px;
+    box-shadow: 5px 5px gray;
+    
+
+
+}
+p , a{
+    background-color: red;
+    display:inline;
+
+}
+
+
+.dotted{
+    border-style:dotted;
+    width: 100px;
+    
+}
+.dashed{
+    border-style:dashed;
+    width: 200px;
+}
+
+.dashed:hover{
+    background-color: chocolate;
+}
+.solid{
+    border-style:solid;
+    width: 300px;
+}
+#div_1{
+    background-color:blue;
+    display:inline;
+    position: relative;
+    left:100px;
+    top:200px;
+
+
+}
+#div_2{
+    display:inline;
+    background-color: aqua;
+    position:absolute;
+    left:100px;
+    top:500px;
+}
+#contato{
+    display:inline;
+    background-color: blueviolet;
+    position:fixed;
+    bottom:0px;
+    right:0px;
+    z-index: 1;
+}
