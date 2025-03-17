@@ -1,0 +1,26 @@
+#div_2{
+    background-color: blueviolet;
+    width: 120px;
+    color: white;
+    padding:10px;
+    height:150px;
+    margin:10px;
+}
+#p_1{
+    font-size:larger;
+}
+.p{
+    font-size: 25px;
+}
+#div_3{
+    padding:10px;
+}
+
+#div_1{
+    display:flex;
+    flex-direction: row;
+    justify-content: center;
+
+}
+
+
