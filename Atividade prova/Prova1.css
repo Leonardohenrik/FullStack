@@ -1,0 +1,104 @@
+#div_1{
+    display:flex;
+    flex-direction: row;
+    justify-content: center;
+    justify-content: space-around;
+}
+
+#div_2{
+    display: flex;
+    flex-direction: column;
+}
+#p_1{
+    font-size: xx-large;
+    font-family: Arial, Helvetica, sans-serif;
+
+}
+#p_2{
+    font-size: xx-large;
+    color: gray;
+    font-family: Arial, Helvetica, sans-serif;
+}
+#p_3{
+    font-size: xx-large;
+    color: gray;
+    font-family: Arial, Helvetica, sans-serif;
+}
+#div_3{
+    display: flex;
+    flex-direction: row;
+
+}
+#div_4{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+ 
+}
+.div_1{
+    padding:20px;
+}
+#div_5{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+.div_2{
+    padding:40px;
+}
+.p_1{
+    font-size: medium;
+    font-family:Arial, Helvetica, sans-serif;
+}
+#p_4{
+    font-size: xx-large;
+    font-family: Arial, Helvetica, sans-serif;
+}
+#p_5{
+    color: gray;
+    font-size: xx-large;
+    font-family: Arial, Helvetica, sans-serif;
+}
+#div_6{
+    display: flex;
+    flex-direction: row;
+}
+#p_7{
+    font-size: xx-large;
+    font-family: Arial, Helvetica, sans-serif;
+}
+#p_8{
+    color: gray;
+    font-size: xx-large;
+    font-family: Arial, Helvetica, sans-serif;
+}
+#div_7{
+    display: flex;
+    flex-direction: row;
+}
+#p_9{
+    font-size: xx-large;
+    font-family: Arial, Helvetica, sans-serif;
+}
+#p_10{
+    color: gray;
+    font-size: xx-large;
+    font-family: Arial, Helvetica, sans-serif;
+}
+#div_8{
+    display: flex;
+    flex-direction: row;
+}
+.div_4{
+    color: blue;
+}
+#div_9{
+    display: flex;
+    flex-direction: row;
+}
+.div_3{
+    font-size: xx-large;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+
