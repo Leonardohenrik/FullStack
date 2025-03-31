@@ -1,8 +1,21 @@
 body{
-    background-color: blue;
+    background-color: aquamarine;
+}
+#h_2{
+    display: flex;
+    justify-content: center;
+    font-size: xx-large;
+    font-family: sans-serif;
 }
 #div_1{
-    display:flex;
-    flex-direction: column;
+    display: flex;
+    justify-content: center;
+}
+#div_2{
+    display: flex;
+    justify-content: center;
+}
+#div_3{
+    display: flex;
     justify-content: center;
 }
