@@ -8,13 +8,13 @@ function guess() {
 
 
     if (palpite === Random) {
-        document.getElementById("div_3").textContent = "Parabéns, você acertou!";
+        document.getElementById("div_3").textContent = "você acertou!";
         document.getElementById("div_3").style.color = "green";
     } else if (palpite < Random) {
-        document.getElementById("div_3").textContent = "O número é maior. Tente novamente!";
+        document.getElementById("div_3").textContent = "Você errou, o número é maior. Tente novamente!";
         document.getElementById("div_3").style.color = "red";
     } else {
-        document.getElementById("div_3").textContent = "O número é menor. Tente novamente!";
+        document.getElementById("div_3").textContent = "Você errou, o número é menor. Tente novamente!";
         document.getElementById("div_3").style.color = "red";
     }
 }
