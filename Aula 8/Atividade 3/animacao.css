@@ -14,7 +14,7 @@ body {
   }
   
   canvas {
-    border: 2px solid #00796b;
-    background-color: #ffffff;
+    border: 2px solid black;
+    background-color: white;
     margin-top: 20px;
   }
