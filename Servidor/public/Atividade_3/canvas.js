@@ -102,7 +102,7 @@ function desenharArcosBase() {
     ctx.stroke();
 }
 
-// Função principal que chama todas as outras
+
 function desenharCanvas() {
     fundoBranco();
     escreverTitulo();
@@ -113,5 +113,5 @@ function desenharCanvas() {
     desenharArcosBase();
 }
 
-// Chamando a função principal
+
 desenharCanvas();
