@@ -7,7 +7,7 @@ var express = require("express");
 
 var app = express()
 
-app.use(express.static("./public/Atividade_3/Atividade 2.html"));
+app.use(express.static("./public"));
 
 var server = http.createServer(app);
 

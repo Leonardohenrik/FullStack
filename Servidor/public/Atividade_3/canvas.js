@@ -1,17 +1,17 @@
 const ctx = document.getElementById("canvas_1").getContext("2d");
 
-function fundoBranco() {
+function fundo() {
     ctx.fillStyle = "white";
     ctx.fillRect(0, 0, 300, 300);
 }
 
-function escreverTitulo() {
+function Titulo() {
     ctx.fillStyle = "black";
     ctx.font = "16px Arial";
     ctx.fillText("Canvas", 120, 40);
 }
 
-function desenharQuadrados() {
+function Quadrados() {
     ctx.fillStyle = "blue";
     ctx.fillRect(0, 0, 50, 50);
 
@@ -34,7 +34,7 @@ function desenharQuadrados() {
     ctx.fillRect(140, 140, 20, 20);
 }
 
-function desenharLinhas() {
+function Linhas() {
     ctx.strokeStyle = "blue";
     ctx.beginPath();
     ctx.moveTo(0, 0);
@@ -59,7 +59,7 @@ function desenharLinhas() {
     ctx.stroke();
 }
 
-function desenharArcosCentro() {
+function ArcosCentro() {
     ctx.strokeStyle = "green";
     ctx.beginPath();
     ctx.arc(150, 150, 40, Math.PI, 0);
@@ -70,7 +70,7 @@ function desenharArcosCentro() {
     ctx.stroke();
 }
 
-function desenharCirculos() {
+function Circulos() {
     ctx.fillStyle = "cyan";
     ctx.beginPath();
     ctx.arc(150, 150, 15, 0, 2 * Math.PI);
@@ -86,7 +86,7 @@ function desenharCirculos() {
     ctx.fill();
 }
 
-function desenharArcosBase() {
+function ArcosBase() {
     ctx.fillStyle = "cyan";
     ctx.beginPath();
     ctx.arc(150, 300, 40, Math.PI, 0);
@@ -102,16 +102,14 @@ function desenharArcosBase() {
     ctx.stroke();
 }
 
-
 function desenharCanvas() {
-    fundoBranco();
-    escreverTitulo();
-    desenharQuadrados();
-    desenharLinhas();
-    desenharArcosCentro();
-    desenharCirculos();
-    desenharArcosBase();
+    fundo(); 
+    Titulo();
+    Quadrados();
+    Linhas();
+    ArcosCentro();
+    Circulos();
+    ArcosBase();
 }
-
 
 desenharCanvas();
