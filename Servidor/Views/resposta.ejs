@@ -1,15 +1,19 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <title>Resposta para usuário</title>
-        <meta charset="UTF-8">
-        <link href="" rel="stylesheet">
-    </head>
-
-
-    <body>
-        <h1>Resposta:</h1>
-        <p>Mensagem do servidor: xxxxxxxx</p>
-        <p>Usuário</p>
-    </body>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Resposta para usuário</title>
+  <link href="" rel="stylesheet">
+</head>
+<body>
+  <form>
+    <% if (sucesso) { %>
+      <h2>Login bem-sucedido!</h2>
+      <p>Bem-vindo, <%= nome %>!</p>
+    <% } else { %>
+      <h2>Falha no login</h2>
+      <p>Email ou senha incorretos.</p>
+    <% } %>
+  </form>
+</body>
 </html>

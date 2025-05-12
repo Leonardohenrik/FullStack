@@ -1,35 +1,60 @@
 require("colors");
 
+const http = require("http");
+const express = require("express");
+const path = require("path");
+const bodyParser = require("body-parser");
 
-var http = require("http");
+const app = express();
 
-var express = require("express");
-
-var app = express()
-
+// Middleware
 app.use(express.static("./public"));
+app.use(bodyParser.urlencoded({ extended: true }));
 
-var server = http.createServer(app);
+// Configuração do EJS
+app.set("view engine", "ejs");
+app.set("views", path.join(__dirname, "views"));
 
-var mongodb = require("mongodb");
+// Variável para armazenar o usuário cadastrado
+let usuarioSalvo = null;
 
-const MongoClient = mongodb.MongoClient;
+// Rota principal → Projects.html
+app.get("/", (req, res) => {
+  res.sendFile(path.join(__dirname, "public","Atividade_3", "projeto.html"));
+});
 
-const uri = "mongodb+srv://leohenrik:<1d1i2b2i>@henriks.ct5jrkx.mongodb.net/?retryWrites=true&w=majority&appName=Henriks"
+// Página de cadastro
+app.get("/cadastra", (req, res) => {
+  res.sendFile(path.join(__dirname, "public","Atividade_3", "cadastro.html"));
+});
 
-const client = new MongoClient(uri, {useNewUrlParser: true});
+// Processa o cadastro
+app.post("/cadastra", (req, res) => {
+  const { nome, email, senha } = req.body;
+  usuarioSalvo = { nome, email, senha };
+  res.send("Cadastro realizado com sucesso! <a href='/login'>Ir para login</a>");
+});
 
-var dbo = client.db("exemplo_bd");
+// Página de login
+app.get("/login", (req, res) => {
+  res.sendFile(path.join(__dirname, "public","Atividade_3", "login.html"));
+});
 
-var usuarios = dbo.collection("usuarios");
+// Processa o login e renderiza a resposta com EJS
+app.post("/login", (req, res) => {
+  const { email, senha } = req.body;
 
+  if (usuarioSalvo && usuarioSalvo.email === email && usuarioSalvo.senha === senha) {
+    res.render("resposta", { sucesso: true, nome: usuarioSalvo.nome });
+  } else {
+    res.render("resposta", { sucesso: false });
+  }
+});
 
-
-server.listen(80);
-
-
-
-console.log("Servidor Rodando".rainbow);
-
+// Criando o servidor na porta 80
+const server = http.createServer(app);
+server.listen(80, () => {
+  console.log("Servidor Rodando".rainbow);
+});
 
 

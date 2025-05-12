@@ -1,0 +1,15 @@
+body {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    font-family: sans-serif;
+    background-color: aquamarine;
+  }
+  
+  form {
+    border: 1px solid black;
+    padding: 20px;
+    border-radius: 8px;
+  }
