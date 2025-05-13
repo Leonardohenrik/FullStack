@@ -58,138 +58,138 @@ server.listen(80, () => {
 });
 
 
-app.get('/inicio', function(requisicao, resposta){
-    resposta.redirect('Aula_1/index.html')
-})
+// app.get('/inicio', function(requisicao, resposta){
+//     resposta.redirect('Aula_1/index.html')
+// })
 
-app.post('/inicio', function(requisicao, resposta){
-    resposta.redirect('Aula_1/index.html')
-})
+// app.post('/inicio', function(requisicao, resposta){
+//     resposta.redirect('Aula_1/index.html')
+// })
 
-app.get('/cadastrar', function(requisicao, resposta){
-    let nome = requisicao.query.nome;
-    let email = requisicao.query.email;
-    let senha = requisicao.query.senha;
-    let nascimento = requisicao.query.nascimento;
-    console.log(nome, email, senha, nascimento);
+// app.get('/cadastrar', function(requisicao, resposta){
+//     let nome = requisicao.query.nome;
+//     let email = requisicao.query.email;
+//     let senha = requisicao.query.senha;
+//     let nascimento = requisicao.query.nascimento;
+//     console.log(nome, email, senha, nascimento);
 
-    resposta.render('resposta.ejs', 
-        {mensagem: "Usuario cadastrado com sucesso!", usuario: nome, login: email})
-})
+//     resposta.render('resposta_1.ejs', 
+//         {mensagem: "Usuario cadastrado com sucesso!", usuario: nome, login: email})
+// })
 
-app.post('/cadastrar', function(requisicao, resposta){
-    let nome = requisicao.body.nome;
-    let email = requisicao.body.email;
-    let senha = requisicao.body.senha;
-    let nascimento = requisicao.body.nascimento;
-    console.log(nome, email, senha, nascimento);
+// app.post('/cadastrar', function(requisicao, resposta){
+//     let nome = requisicao.body.nome;
+//     let email = requisicao.body.email;
+//     let senha = requisicao.body.senha;
+//     let nascimento = requisicao.body.nascimento;
+//     console.log(nome, email, senha, nascimento);
 
-    let data = {db_nome: nome, db_email: email, db_senha: senha, db_nascimento: nascimento}
-    usuarios.insertOne(data, function(err){
-        console.log(err)
-        if(err){
-            resposta.render('resposta.ejs', 
-                {mensagem: "Erro ao cadastrar usuário!", usuario: nome, login: email})        
-        }else{
-            resposta.render('resposta.ejs', 
-                {mensagem: "Usuario cadastrado com sucesso!", usuario: nome, login: email})
-        }
-    })
+//     let data = {db_nome: nome, db_email: email, db_senha: senha, db_nascimento: nascimento}
+//     usuarios.insertOne(data, function(err){
+//         console.log(err)
+//         if(err){
+//             resposta.render('resposta_1.ejs', 
+//                 {mensagem: "Erro ao cadastrar usuário!", usuario: nome, login: email})        
+//         }else{
+//             resposta.render('resposta_1.ejs', 
+//                 {mensagem: "Usuario cadastrado com sucesso!", usuario: nome, login: email})
+//         }
+//     })
     
- })
+//  })
 
-app.get('/for_ejs', function(requisicao, resposta){
-    let num = requisicao.query.num;
-    resposta.render('exemplo_for.ejs',{tamanho: num});
-})
+// app.get('/for_ejs', function(requisicao, resposta){
+//     let num = requisicao.query.num;
+//     resposta.render('exemplo_for.ejs',{tamanho: num});
+// })
 
-app.post('/login', function(requisicao, resposta){
-    let email = requisicao.body.email;
-    let senha = requisicao.body.senha;
+// app.post('/login', function(requisicao, resposta){
+//     let email = requisicao.body.email;
+//     let senha = requisicao.body.senha;
 
-    console.log(email, senha);
+//     console.log(email, senha);
 
-    let data = {db_email: email, db_senha: senha};
-    usuarios.find(data).toArray(function(err, items){
+//     let data = {db_email: email, db_senha: senha};
+//     usuarios.find(data).toArray(function(err, items){
 
-        if (items.length == 0) {
-            resposta.render('resposta_usuario.ejs', {mensagem: "Usuário/senha não encontrado!"})
-          }else if (err) {
-            resposta.render('resposta_usuario.ejs', {mensagem: "Erro ao logar usuário!"})
-          }else {
-            resposta.render('resposta_usuario.ejs', {mensagem: "Usuário logado com sucesso!"})        
-          };
+//         if (items.length == 0) {
+//             resposta.render('resposta_usuario.ejs', {mensagem: "Usuário/senha não encontrado!"})
+//           }else if (err) {
+//             resposta.render('resposta_usuario.ejs', {mensagem: "Erro ao logar usuário!"})
+//           }else {
+//             resposta.render('resposta_usuario.ejs', {mensagem: "Usuário logado com sucesso!"})        
+//           };
     
-    })
-})
+//     })
+// })
 
 
-app.post('/atualizar_usuario', function(requisicao, resposta){
-    var data = { db_email: requisicao.body.email, db_senha: requisicao.body.senha };
-    var newData = { $set: {db_senha: requisicao.body.novasenha} };
-    console.log(data)
+// app.post('/atualizar_usuario', function(requisicao, resposta){
+//     var data = { db_email: requisicao.body.email, db_senha: requisicao.body.senha };
+//     var newData = { $set: {db_senha: requisicao.body.novasenha} };
+//     console.log(data)
 
-    usuarios.updateOne(data,newData, function(err, result){
-        console.log(result);
-        if (result.modifiedCount == 0) {
-        resposta.render('resposta_usuario.ejs', {mensagem: "Usuário/senha não encontrado!"})
-        }else if (err) {
-        resposta.render('resposta_usuario.ejs', {mensagem: "Erro ao atualizar usuário!"})
-        }else {
-        resposta.render('resposta_usuario.ejs', {mensagem: "Usuário atualizado com sucesso!"})        
-        };
-    });
-})
-
-
-app.post('/remover_usuario', function(requisicao, resposta){
-    var data = {db_email: requisicao.body.email, db_senha: requisicao.body.senha}
-
-    usuarios.deleteOne(data, function(err, result){
-        console.log(result);
-        if (result.deletedCount == 0) {
-            resposta.render('resposta_usuario.ejs', {mensagem: "Usuário/senha não encontrado!"})
-        }else if (err) {
-            resposta.render('resposta_usuario.ejs', {mensagem: "Erro ao remover usuário!"})
-        }else {
-            resposta.render('resposta_usuario.ejs', {mensagem: "Usuário removido com sucesso!"})        
-        };
-    });
-
-})
+//     usuarios.updateOne(data,newData, function(err, result){
+//         console.log(result);
+//         if (result.modifiedCount == 0) {
+//         resposta.render('resposta_usuario.ejs', {mensagem: "Usuário/senha não encontrado!"})
+//         }else if (err) {
+//         resposta.render('resposta_usuario.ejs', {mensagem: "Erro ao atualizar usuário!"})
+//         }else {
+//         resposta.render('resposta_usuario.ejs', {mensagem: "Usuário atualizado com sucesso!"})        
+//         };
+//     });
+// })
 
 
+// app.post('/remover_usuario', function(requisicao, resposta){
+//     var data = {db_email: requisicao.body.email, db_senha: requisicao.body.senha}
+
+//     usuarios.deleteOne(data, function(err, result){
+//         console.log(result);
+//         if (result.deletedCount == 0) {
+//             resposta.render('resposta_usuario.ejs', {mensagem: "Usuário/senha não encontrado!"})
+//         }else if (err) {
+//             resposta.render('resposta_usuario.ejs', {mensagem: "Erro ao remover usuário!"})
+//         }else {
+//             resposta.render('resposta_usuario.ejs', {mensagem: "Usuário removido com sucesso!"})        
+//         };
+//     });
+
+// })
 
 
-app.post("/atualizar_usuario",function(requisicao,resposta){
-    var data = {db_email : req.body.login,db_senha:req.body.senha};
-    var newData = {$set: {db_senha:req.body.novasenha}};
-
-    usuarioSalvo.updateOne(data,newData,function(err,result){
-        console.log(result);
-        if (result.modifiedCount == 0){
-            resposta.render("resposta_usuario.ejs",{mensagem:"Usuário/senha não existe"})
-        }else if(err){
-            resposta.render("resposta_usuario.ejs",{mensagem:"Erro ao logar usuario"})
-        }else{
-            resposta.render("resposta_usuario.ejs",{mensagem:"Usuario logado com sucesso"})
-        };
-    })
 
 
-})
+// app.post("/atualizar_usuario",function(requisicao,resposta){
+//     var data = {db_email : req.body.login,db_senha:req.body.senha};
+//     var newData = {$set: {db_senha:req.body.novasenha}};
 
-app.post("/remover_usuario",function(requisicao,resposta){
-    var data = {db_email:requisicao.body.email,db_senha:requisicao.body.senha};
-    usuarios.delete.One(data, function(err,result){
-        if (result.deletedCount == 0){
-            resposta.render("resposta_usuario.ejs",{mensagem:"Usuário/senha não encontrado"})
-        }else if(err){
-            resposta.render("resposta_usuario.ejs",{mensagem:"Erro remover usuario"})
-        }else{
-            resposta.render("resposta_usuario.ejs",{mensagem:"Usuario removido com sucesso"})
-        };
+//     usuarioSalvo.updateOne(data,newData,function(err,result){
+//         console.log(result);
+//         if (result.modifiedCount == 0){
+//             resposta.render("resposta_usuario.ejs",{mensagem:"Usuário/senha não existe"})
+//         }else if(err){
+//             resposta.render("resposta_usuario.ejs",{mensagem:"Erro ao logar usuario"})
+//         }else{
+//             resposta.render("resposta_usuario.ejs",{mensagem:"Usuario logado com sucesso"})
+//         };
+//     })
 
-    })
-})
+
+// })
+
+// app.post("/remover_usuario",function(requisicao,resposta){
+//     var data = {db_email:requisicao.body.email,db_senha:requisicao.body.senha};
+//     usuarios.delete.One(data, function(err,result){
+//         if (result.deletedCount == 0){
+//             resposta.render("resposta_usuario.ejs",{mensagem:"Usuário/senha não encontrado"})
+//         }else if(err){
+//             resposta.render("resposta_usuario.ejs",{mensagem:"Erro remover usuario"})
+//         }else{
+//             resposta.render("resposta_usuario.ejs",{mensagem:"Usuario removido com sucesso"})
+//         };
+
+//     })
+// })
 
