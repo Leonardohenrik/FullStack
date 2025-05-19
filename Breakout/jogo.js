@@ -1,4 +1,4 @@
-const canvas = document.getElementById("gameCanvas");
+const canvas = document.getElementById("canvas_1");
 const ctx = canvas.getContext("2d");
 
 let fase = 1;
@@ -19,7 +19,7 @@ const paddle = {
   height: 15,
   x: canvas.width / 2 - 50,
   y: canvas.height - 30,
-  speed: 8,
+  speed: 10,
   right: false,
   left: false
 };
