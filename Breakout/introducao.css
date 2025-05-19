@@ -1,0 +1,89 @@
+ body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Courier New', monospace;
+      background-color: black;
+      color: cyan;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    header {
+      width: 100%;
+      padding: 20px 0;
+      text-align: center;
+      box-shadow: 0 0 10px black;
+    }
+
+    h1 {
+      font-size: 3em;
+      margin: 0;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
+
+    .dev-container {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      margin-top: 50px;
+      flex-wrap: wrap;
+    }
+
+    .dev-card {
+      background-color: black;
+      border: 2px solid cyan;
+      border-radius: 10px;
+      padding: 20px;
+      width: 280px;
+      text-align: center;
+      box-shadow: 0 0 10px cyan;
+      transition: transform 0.3s;
+    }
+
+    .dev-card:hover {
+      transform: scale(1.05);
+    }
+
+    .dev-photo {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      background-color: black;
+      margin-bottom: 15px;
+      border: 3px solid cyan;
+      background-size: cover;
+      background-position: center;
+    }
+
+    p {
+      font-size: 1.1em;
+    }
+
+    footer {
+      margin-top: 60px;
+      padding: 20px;
+      text-align: center;
+      color: gray;
+    }
+
+.regras_1 {
+  display: inline-block;
+  margin-top: 15px;
+  padding: 12px 24px;
+  font-size: 1.1em;
+  color: #0ff;
+  background-color: #111;
+  border: 2px solid #0ff;
+  border-radius: 8px;
+  text-decoration: none;
+  box-shadow: 0 0 10px #0ff;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.regras_1:hover {
+  background-color: #0ff;
+  color: #000;
+  transform: scale(1.05);
+}

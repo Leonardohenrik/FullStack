@@ -1,7 +1,7 @@
 const canvas = document.getElementById("gameCanvas");
 const ctx = canvas.getContext("2d");
 
-let fase = 1; // 🔸 Fase atual
+let fase = 1;
 let jogoPausado = false;
 
 let balls = [
@@ -63,7 +63,7 @@ function desenharBlocos() {
 }
 
 function desenharPoderes() {
-  ctx.fillStyle = "lime";
+  ctx.fillStyle = "red";
   powers.forEach(p => {
     ctx.beginPath();
     ctx.arc(p.x, p.y, 6, 0, Math.PI * 2);
@@ -109,12 +109,12 @@ function mostrarMensagemFinal() {
 }
 
 function iniciarProximaFase() {
-  brick.rowCount += 1; // 🔸 aumenta a dificuldade
+  brick.rowCount += 1;
   balls = [{
     x: canvas.width / 2,
     y: canvas.height - 60,
     radius: 8,
-    dx: 4 + fase,         // 🔸 aumenta a velocidade
+    dx: 4 + fase,       
     dy: -(4 + fase)
   }];
   paddle.x = canvas.width / 2 - paddle.width / 2;
@@ -137,7 +137,6 @@ function detectarColisoes() {
           ) {
             ball.dy *= -1;
             b.status = 0;
-            // 🔸 Geração aleatória de poder
             if (Math.random() < 0.2) {
               powers.push({ x: b.x + brick.width / 2, y: b.y + brick.height / 2 });
             }
@@ -205,11 +204,18 @@ function moverPoderes() {
 }
 
 function aplicarPoder() {
+  if (balls.length >= 10) return;
+
   const novasBolas = [];
   balls.forEach(ball => {
-    novasBolas.push({ x: ball.x, y: ball.y, radius: ball.radius, dx: -ball.dx, dy: ball.dy });
-    novasBolas.push({ x: ball.x, y: ball.y, radius: ball.radius, dx: ball.dx, dy: -ball.dy });
+    if (balls.length + novasBolas.length < 10) {
+      novasBolas.push({ x: ball.x, y: ball.y, radius: ball.radius, dx: -ball.dx, dy: ball.dy });
+    }
+    if (balls.length + novasBolas.length < 10) {
+      novasBolas.push({ x: ball.x, y: ball.y, radius: ball.radius, dx: ball.dx, dy: -ball.dy });
+    }
   });
+
   balls = balls.concat(novasBolas);
 }
 
