@@ -31,7 +31,8 @@ const brick = {
   height: 20,
   padding: 10,
   offsetTop: 50,
-  offsetLeft: 35
+  offsetLeft: 30,
+  offsetRight:18
 };
 
 let bricks = [];
