@@ -99,7 +99,7 @@ function todosBlocosDestruidos() {
 function mostrarMensagemFinal() {
   jogoPausado = true;
   setTimeout(() => {
-    if (confirm("🎉 Fase concluída! Deseja ir para a próxima fase?")) {
+    if (confirm("Fase concluída! Deseja ir para a próxima fase?")) {
       fase++;
       iniciarProximaFase();
     } else {
