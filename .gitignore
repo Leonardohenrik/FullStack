@@ -1,2 +1,6 @@
 Servidor/node_modules/*
 Servidor/package-lock.json0
+Servidor1/node_modules/*
+Servidor1/package-lock.json0
+Servidor2/node_modules/*
+Servidor2/package-lock.json0
